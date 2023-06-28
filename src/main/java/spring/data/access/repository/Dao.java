@@ -6,7 +6,7 @@ public interface Dao {
 
     void addProduct(Product product);
 
-    void deleteProduct(Product product);
+    void deleteProduct(int id);
 
     Product getProductByID(int id);
 }

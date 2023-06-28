@@ -9,7 +9,10 @@ import java.sql.SQLException;
 public class CartMapper implements RowMapper<Cart> {
 
     @Override
-    public Cart mapRow(ResultSet rs, int rowNum) throws SQLException {
-        return null;
+    public Cart mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+        Cart cart = new Cart();
+        cart.setId(resultSet.getInt("id"));
+        cart.setName(resultSet.getString("name"));
+        return cart;
     }
 }

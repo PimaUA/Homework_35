@@ -22,16 +22,17 @@ private JdbcTemplate jdbcTemplate;
 
     @Override
     public void addProduct(Product product) {
-
+        return jdbcTemplate.update(SQL_INSERT_PERSON, person.getId(), person.getFirstName(), person.getLastName(),
+                person.getAge()) > 0;
     }
 
     @Override
-    public void deleteProduct(Product product) {
-
+    public void deleteProduct(int id) {
+        return jdbcTemplate.update(SQL_DELETE_PERSON, person.getId()) > 0;
     }
 
     @Override
     public Product getProductByID(int id) {
-        return null;
+        return jdbcTemplate.queryForObject(SQL_FIND_PERSON, new Object[] { id }, new PersonMapper());
     }
 }

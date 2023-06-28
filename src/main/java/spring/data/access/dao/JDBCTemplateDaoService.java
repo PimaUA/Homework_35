@@ -16,7 +16,6 @@ private JdbcTemplate jdbcTemplate;
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-
     @Override
     public void addProduct(Product product) {
 

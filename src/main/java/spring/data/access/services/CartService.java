@@ -7,23 +7,19 @@ import spring.data.access.dao.DaoService;
 import spring.data.access.models.Product;
 
 @Component
-@Scope
-public class CartDaoService implements DaoService {
-@Autowired
-DaoService daoService;
+@Scope("prototype")
+public class CartService {
+    @Autowired
+    private DaoService daoService;
 
-
-    @Override
     public void addProduct(Product product) {
 
     }
 
-    @Override
     public void deleteProduct(Product product) {
 
     }
 
-    @Override
     public Product getProductByID(int id) {
         return null;
     }

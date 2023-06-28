@@ -8,10 +8,9 @@ import spring.data.access.models.Product;
 
 @Component
 @Scope
-public class CartDaoService implements DaoService {
-@Autowired
-DaoService daoService;
-
+public class ProductService implements DaoService {
+    @Autowired
+    DaoService daoService;
 
     @Override
     public void addProduct(Product product) {

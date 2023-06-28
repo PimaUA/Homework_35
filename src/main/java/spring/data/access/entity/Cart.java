@@ -1,6 +1,4 @@
-package spring.data.access.models;
-
-import org.springframework.stereotype.Repository;
+package spring.data.access.entity;
 
 import java.util.ArrayList;
 

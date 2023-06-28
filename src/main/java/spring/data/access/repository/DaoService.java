@@ -1,6 +1,6 @@
-package spring.data.access.dao;
+package spring.data.access.repository;
 
-import spring.data.access.models.Product;
+import spring.data.access.entity.Product;
 
 public interface DaoService {
 

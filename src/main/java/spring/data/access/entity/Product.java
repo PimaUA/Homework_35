@@ -1,4 +1,4 @@
-package spring.data.access.models;
+package spring.data.access.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

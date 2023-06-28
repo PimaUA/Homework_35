@@ -1,9 +1,9 @@
-package spring.data.access.dao;
+package spring.data.access.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import spring.data.access.models.Product;
+import spring.data.access.entity.Product;
 
 import javax.sql.DataSource;
 

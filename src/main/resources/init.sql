@@ -12,6 +12,8 @@ PRIMARY KEY(id)
 CREATE TABLE carts(
 id INT NOT NULL,
 name VARCHAR(50),
+product_Id INT,
+FOREIGN KEY (product_Id)  REFERENCES products(id),
 PRIMARY KEY(id)
 );
 

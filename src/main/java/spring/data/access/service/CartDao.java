@@ -3,24 +3,24 @@ package spring.data.access.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import spring.data.access.repository.Dao;
-import spring.data.access.entity.Product;
+import spring.data.access.entity.Cart;
+import spring.data.access.repository.JDBCTemplateCart;
 
 @Component
 @Scope("prototype")
 public class CartDao {
     @Autowired
-    private Dao daoService;
+    private JDBCTemplateCart jdbcTemplateCart;
 
-    public void addProduct(Product product) {
-
+    public void addProduct(Cart cart) {
+        jdbcTemplateCart.add(cart);
     }
 
-    public void deleteProduct(Product product) {
-
+    public void deleteProduct(int id) {
+        jdbcTemplateCart.delete(id);
     }
 
-    public Product getProductByID(int id) {
-        return null;
+    public Cart getCartByID(int id) {
+        return jdbcTemplateCart.getByID(id);
     }
 }

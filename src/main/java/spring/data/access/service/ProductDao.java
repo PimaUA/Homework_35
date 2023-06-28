@@ -2,15 +2,15 @@ package spring.data.access.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import spring.data.access.repository.DaoService;
+import org.springframework.stereotype.Repository;
+import spring.data.access.repository.Dao;
 import spring.data.access.entity.Product;
 
-@Component
+@Repository
 @Scope("prototype")
-public class CartService {
+public class ProductDao implements Dao {
     @Autowired
-    private DaoService daoService;
+    private Dao daoService;
 
     public void addProduct(Product product) {
 

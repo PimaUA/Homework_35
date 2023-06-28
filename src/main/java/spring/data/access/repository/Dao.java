@@ -2,7 +2,7 @@ package spring.data.access.repository;
 
 import spring.data.access.entity.Product;
 
-public interface DaoService {
+public interface Dao {
 
     void addProduct(Product product);
 

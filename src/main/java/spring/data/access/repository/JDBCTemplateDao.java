@@ -8,7 +8,11 @@ import spring.data.access.entity.Product;
 import javax.sql.DataSource;
 
 @Repository
-public class JDBCTemplateDaoService implements DaoService{
+public class JDBCTemplateDao implements Dao {
+    private final String SQL_FIND_BY_ID = "select * from people where id = ?";
+    private final String SQL_DELETE = "delete from people where id = ?";
+    private final String SQL_INSERT = "insert into people(id, first_name, last_name, age) values(?,?,?,?)";
+
 private JdbcTemplate jdbcTemplate;
 
     @Autowired

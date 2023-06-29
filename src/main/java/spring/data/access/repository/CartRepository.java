@@ -9,12 +9,12 @@ import spring.data.access.mapper.CartMapper;
 import javax.sql.DataSource;
 
 @Repository
-public class JDBCTemplateCart implements ObjectRepository<Cart> {
+public class CartRepository implements ObjectRepository<Cart> {
     private final String SQL_FIND_BY_ID = "select * from carts where id = ?";
     private final String SQL_DELETE = "delete from carts where id = ?";
     private final String SQL_INSERT = "insert into carts(id, name) values(?,?)";
 
-private JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     public void init(DataSource dataSource) {
@@ -22,20 +22,18 @@ private JdbcTemplate jdbcTemplate;
     }
 
     @Override
-    public boolean add(Cart cart) {
-        return jdbcTemplate.update(SQL_INSERT, cart.getId(), cart.getName()) > 0;
+    public void add(Cart cart) {
+        jdbcTemplate.update(SQL_INSERT, cart.getId(), cart.getName());
     }
 
     @Override
-    public boolean delete(int id) {
-        Cart cart=getByID(id);
-        return jdbcTemplate.update(SQL_DELETE, cart.getId()) > 0;
+    public void delete(int id) {
+        Cart cart = getByID(id);
+        jdbcTemplate.update(SQL_DELETE, cart.getId());
     }
 
     @Override
     public Cart getByID(int id) {
-        Cart cart=jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CartMapper(),id);
-        System.out.println("Received "+cart);
-        return cart;
+        return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CartMapper(), id);
     }
 }

@@ -3,8 +3,8 @@ package spring.data.access;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.data.access.entity.Cart;
 import spring.data.access.entity.Product;
-import spring.data.access.repository.JDBCTemplateCart;
-import spring.data.access.repository.JDBCTemplateProduct;
+import spring.data.access.service.CartService;
+import spring.data.access.service.ProductService;
 
 public class Main {
 
@@ -12,15 +12,15 @@ public class Main {
         AnnotationConfigApplicationContext applicationContext
                 = new AnnotationConfigApplicationContext("spring.data.access");
 
-        JDBCTemplateProduct jdbcTemplateProduct = applicationContext.getBean(JDBCTemplateProduct.class);
-        jdbcTemplateProduct.add(new Product(11, "Shake", 25));
-        jdbcTemplateProduct.getByID(1);
-        jdbcTemplateProduct.delete(11);
+        ProductService productService = applicationContext.getBean(ProductService.class);
+        productService.addProduct(new Product(11, "Shake", 25));
+        productService.getProductByID(11);
+        productService.deleteProduct(11);
 
-        JDBCTemplateCart jdbcTemplateCart = applicationContext.getBean(JDBCTemplateCart.class);
-        jdbcTemplateCart.add(new Cart(4, "cart4"));
-        jdbcTemplateCart.getByID(1);
-        jdbcTemplateCart.delete(4);
+        CartService cartService = applicationContext.getBean(CartService.class);
+        cartService.addCart(new Cart(4, "cart4"));
+        cartService.getCartByID(4);
+        cartService.deleteCart(4);
 
         applicationContext.close();
     }

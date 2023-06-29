@@ -13,6 +13,7 @@ public class DBConfiguration {
 
     @Bean
     public DataSource dataSource() throws SQLException {
-return new SimpleDriverDataSource(new Driver(),"jdbc:mysql://localhost:3306/homework_35","root","root");
+return new SimpleDriverDataSource(new Driver(),"jdbc:mysql://localhost:3306/homework_35",
+        "root","root");
     }
 }

@@ -34,6 +34,8 @@ private JdbcTemplate jdbcTemplate;
 
     @Override
     public Cart getByID(int id) {
-        return jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CartMapper(),id);
+        Cart cart=jdbcTemplate.queryForObject(SQL_FIND_BY_ID, new CartMapper(),id);
+        System.out.println("Received "+cart);
+        return cart;
     }
 }

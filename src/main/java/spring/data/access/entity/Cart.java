@@ -1,12 +1,12 @@
 package spring.data.access.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Cart {
     private int id;
     private String name;

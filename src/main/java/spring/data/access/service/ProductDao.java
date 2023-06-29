@@ -8,7 +8,7 @@ import spring.data.access.entity.Product;
 
 @Component
 @Scope("prototype")
-public class ProductDao{
+public class ProductDao {
     @Autowired
     private JDBCTemplateProduct jdbcTemplateProduct;
 

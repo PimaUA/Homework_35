@@ -34,6 +34,8 @@ private JdbcTemplate jdbcTemplate;
 
     @Override
     public Product getByID(int id) {
-        return jdbcTemplate.queryForObject(SQL_FIND_BY_ID,new ProductMapper(), id);
+        Product product=jdbcTemplate.queryForObject(SQL_FIND_BY_ID,new ProductMapper(), id);
+        System.out.println("Received "+product);
+        return product;
     }
 }
